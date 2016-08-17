@@ -16,6 +16,7 @@ function draw() {
 	s.update();
 	s.show();
 	
+	f.eaten();
 	f.show();
 }
 
