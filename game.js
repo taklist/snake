@@ -1,22 +1,30 @@
 var s;
 var f;
 var scl = 20;
+var gamerunning = true;
+
 
 function setup() {
 	createCanvas(600, 600);
-	s = new Snake();
-	f = new Food();
-	frameRate(10);
-	f.newLocation();	
+
+	if (gamerunning){
+		s = new Snake();
+		f = new Food();
+		frameRate(10);
+		f.newLocation();
+	}	
 }
 
 function draw() {
 	background(51);
-	
-	s.update();
+
+	if (gamerunning) {
+		s.update();
+		s.collision();
+		f.eaten();
+	}
+
 	s.show();
-	
-	f.eaten();
 	f.show();
 }
 

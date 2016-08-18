@@ -30,7 +30,6 @@ function Snake() {
 
 		for (var i = 0; i < this.total; i++){
 			rect(this.tail[i].x, this.tail[i].y, scl, scl);
-			console.log(this.tail[i].x);
 		}
 
 		rect(this.x, this.y, scl, scl);
@@ -44,5 +43,13 @@ function Snake() {
 	this.grow = function(){
 		this.total++;
 		this.tail[this.total-1] = createVector(this.x, this.y);
+	}
+
+	this.collision = function(){
+		for (var i = 0; i < this.total; i++){
+			if ((this.x == this.tail[i].x) && (this.y == this.tail[i].y)){
+				gamerunning = false;
+			}
+		}
 	}
 }
