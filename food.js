@@ -18,6 +18,7 @@ function Food(){
 	this.eaten = function(){
 		if ((this.x == s.x) && (this.y == s.y)){
 			this.newLocation();
+			s.grow();
 		}
 	}
 }
